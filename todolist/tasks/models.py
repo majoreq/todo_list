@@ -9,8 +9,15 @@ class Category(models.Model):
     )
     color = ColorField(default="#FF0000")
 
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
 
-class Tasks(models.Model):
+    def __str__(self):
+        return self.name
+
+
+class Task(models.Model):
     category = models.ForeignKey(
         Category,
         verbose_name="Category",
@@ -23,6 +30,13 @@ class Tasks(models.Model):
     description = models.TextField(
         verbose_name="description"
     )
+
+    class Meta:
+        verbose_name = "Task"
+        verbose_name_plural = "Tasks"
+
+    def __str__(self):
+        return self.name
 
 
 
