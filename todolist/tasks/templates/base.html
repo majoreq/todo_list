@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block extra_header %}
+
+    {% endblock %}
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'categories-list' %}">Categories</a></li>
+                <li><a href="{% url 'add-category' %}">Add Category</a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </nav>
+    </header>
+
+<section class="wrapper">
+    {% block content %}
+
+    {% endblock %}
+</section>
+
+<footer>
+    <h2>Footer!</h2>
+</footer>
+</body>
+</html>

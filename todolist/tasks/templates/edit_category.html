@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block extra_header %}
+<title>Edit Category</title>
+{% endblock %}
+
+
+{% block content %}
+    <h1>Edit category</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Name" value="{{category.name}}"><br>
+        <input type="color" name="color" placeholder="Color" value="{{category.color}}"><br>
+        <input type="submit" value="wduś">
+    </form>
+{% endblock %}
+
