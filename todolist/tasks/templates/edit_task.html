@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block extra_header %}
+<title>Edit Task</title>
+{% endblock %}
+
+
+{% block content %}
+    <h1>Edit Task</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <select name="category">
+            <option selected hidden value={{task.category.id}}>{{task.category.name}}</option>
+            {% for category in categories %}
+                <option value={{category.id}}>{{category.name}}</option>
+            {% endfor %}
+        </select><br>
+        <input type="text" name="name" placeholder="Name" value="{{task.name}}"><br>
+        <input type="text" name="description" placeholder="Task description..." value="{{task.description}}"><br>
+        <input type="submit" value="wduś">
+    </form>
+{% endblock %}

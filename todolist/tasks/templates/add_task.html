@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block extra_header %}
+<title>Add Task</title>
+{% endblock %}
+
+
+{% block content %}
+    <h1>Add task</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <select name="category">
+            {% for category in categories %}
+                <option value={{category.id}}>{{category.name}}</option>
+            {% endfor %}
+        </select><br>
+        <input type="text" name="name" placeholder="Name"><br>
+        <input type="text" name="description" placeholder="My task...."><br>
+        <input type="submit" value="wduś">
+    </form>
+{% endblock %}
+

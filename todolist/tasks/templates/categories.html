@@ -9,14 +9,16 @@
     <h1>Categories</h1>
     <table>
         <tr>
-            <td>Nazwa</td>
-            <td>Akcje</td>
+            <th>Name</th>
+            <th>Action</th>
         </tr>
     {% for category in categories %}
     <tr style="background-color: {{ category.color }}">
         <td>{{category.name}}</td>
-        <td><a href="{% url 'edit-category' category.id %}">Edytuj</a></td>
-        <td><a href="{% url 'delete-category' category.id%}">Usuń</a></td>
+        <td>
+            <a href="{% url 'edit-category' category.id %}">Edytuj</a>
+            <a href="{% url 'delete-category' category.id%}">Usuń</a>
+        </td>
     </tr>
     {% endfor %}
     </table>

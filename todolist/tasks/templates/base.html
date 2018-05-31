@@ -13,7 +13,9 @@
                 <li><a href="{% url 'index' %}">Home</a></li>
                 <li><a href="{% url 'categories-list' %}">Categories</a></li>
                 <li><a href="{% url 'add-category' %}">Add Category</a></li>
-                <li><a href=""></a></li>
+                <li><a href="{% url 'tasks' %}">Tasks</a></li>
+                <li><a href="{% url 'add-task' %}">Add Task</a></li>
+
             </ul>
         </nav>
     </header>
@@ -24,8 +26,5 @@
     {% endblock %}
 </section>
 
-<footer>
-    <h2>Footer!</h2>
-</footer>
 </body>
 </html>
