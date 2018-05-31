@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     {% block extra_header %}
 
     {% endblock %}
 </head>
 <body>
-
-    <header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'categories-list' %}">Categories</a></li>
-                <li><a href="{% url 'add-category' %}">Add Category</a></li>
-                <li><a href="{% url 'tasks' %}">Tasks</a></li>
-                <li><a href="{% url 'add-task' %}">Add Task</a></li>
+<div class="container">
+        <div class="navbar navbar-dark bg-dark">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'categories-list' %}">Categories</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'add-category' %}">Add Category</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'tasks' %}">Tasks</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'add-task' %}">Add Task</a></li>
 
             </ul>
         </nav>
-    </header>
 
-<section class="wrapper">
+    </div>
+<div class="jumbotron">
     {% block content %}
 
     {% endblock %}
-</section>
-
+</div>
+</div>
 </body>
 </html>
