@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from .models import Category, Task
 from django.views import View
 
-class index(View):
+
+class Index(View):
     def get(self, request):
         return render(request, 'index.html')
 
 
-class categories(View):
+class Categories(View):
     def get(self, request):
         categories = Category.objects.all()
         return render(request, 'categories.html', {
@@ -16,9 +16,8 @@ class categories(View):
         })
 
 
-
-class add_category(View):
-    def post(self,request):
+class AddCategory(View):
+    def post(self, request):
         name = request.POST.get('name')
         color = request.POST.get('color')
         if color and name:
@@ -29,52 +28,51 @@ class add_category(View):
             category.save()
             return redirect('categories-list')
 
-
-    def get(self,request):
+    def get(self, request):
         return render(request, 'add_category.html')
 
 
-class edit_category(View):
-    def post(self,request, category_id):
+class EditCategory(View):
+    def post(self, request, category_id):
         category = Category.objects.get(id=category_id)
         name = request.POST.get('name')
         color = request.POST.get('color')
         if color and name:
-            category.name=name
-            category.color=color
+            category.name = name
+            category.color = color
             category.save()
         return redirect('categories-list')
-    def get(self,request, category_id):
+
+    def get(self, request, category_id):
         category = Category.objects.get(id=category_id)
         return render(request, 'edit_category.html', {
-            'category':category
+            'category': category
         })
 
 
-class delete_category(View):
+class DeleteCategory(View):
     def get(self, request, category_id):
         category = Category.objects.get(id=category_id)
         category.delete()
         return redirect('categories-list')
 
 
-class tasks(View):
+class Tasks(View):
     def get(self, request):
         tasks = Task.objects.all()
         categories = Category.objects.all()
         return render(request, 'tasks.html', {
-            'tasks':tasks,
-            'categories':categories
+            'tasks': tasks,
+            'categories': categories
         })
 
 
-class add_task(View):
+class AddTask(View):
     def get(self, request):
         categories = Category.objects.all()
         return render(request, 'add_task.html', {
-            'categories':categories
+            'categories': categories
         })
-
 
     def post(self, request):
         category = request.POST.get('category')
@@ -85,20 +83,16 @@ class add_task(View):
         task.name = name
         task.description = description
         task.save()
-        print(task.id)
-        print(task.name)
-        print(task.description)
-        print(task.category)
         return redirect('tasks')
 
 
-class edit_task(View):
+class EditTask(View):
     def get(self, request, task_id):
         task = Task.objects.get(id=task_id)
         categories = Category.objects.all()
         return render(request, 'edit_task.html', {
-            'task':task,
-            'categories':categories
+            'task': task,
+            'categories': categories
         })
 
     def post(self, request, task_id):
@@ -113,7 +107,8 @@ class edit_task(View):
             task.save()
         return redirect('tasks')
 
-class delete_task(View):
+
+class DeleteTask(View):
     def get(self, request, task_id):
         task = Task.objects.get(id=task_id)
         task.delete()
