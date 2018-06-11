@@ -19,6 +19,3 @@ class Tasks(admin.ModelAdmin):
         'category',
         'name',
     )
-
-
-

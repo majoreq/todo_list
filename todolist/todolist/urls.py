@@ -1,6 +1,16 @@
 from django.contrib import admin
 from django.urls import path
-from tasks.views import Index, Categories, AddCategory, EditCategory, DeleteCategory, AddTask, Tasks, EditTask, DeleteTask
+from tasks.views import (
+    Index,
+    Categories,
+    AddCategory,
+    EditCategory,
+    DeleteCategory,
+    AddTask,
+    Tasks,
+    EditTask,
+    DeleteTask
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -13,6 +23,4 @@ urlpatterns = [
     path('add_task/', AddTask.as_view(), name='add-task'),
     path('edit_task/<int:task_id>', EditTask.as_view(), name='edit-task'),
     path('delete_task/<int:task_id>', DeleteTask.as_view(), name='delete-task'),
-
 ]
-
