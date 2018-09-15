@@ -8,14 +8,17 @@
 </head>
 <body>
 <div class="container">
-    <div class="navbar navbar-dark bg-dark">
-        <ul class="nav">
-            <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}">Home</a></li>
-            <li class="nav-item"><a class="nav-link active" href="{% url 'categories-list' %}">Categories</a></li>
-            <li class="nav-item"><a class="nav-link active" href="{% url 'add-category' %}">Add Category</a></li>
-            <li class="nav-item"><a class="nav-link active" href="{% url 'tasks' %}">Tasks</a></li>
-            <li class="nav-item"><a class="nav-link active" href="{% url 'add-task' %}">Add Task</a></li>
-        </ul>
+        <div class="navbar navbar-dark bg-dark">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'categories-list' %}">Categories</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'add-category' %}">Add Category</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'tasks' %}">Tasks</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'add-task' %}">Add Task</a></li>
+
+            </ul>
+
+
     </div>
 <div class="jumbotron">
     {% block content %}
